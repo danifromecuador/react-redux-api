@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  users: [23],
+  users: [
+    { id: 1, name: "John" },
+    { id: 2, name: "Jane" },
+    { id: 3, name: "Jack" },
+  ],
   isLoading: true,
   error: undefined,
 };
@@ -11,7 +15,7 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     showUsers: (state, action) => {
-      state.users = [...state.users, action.payload];
+      state.users = [...state.users, 23];
     }
   },
   extraReducers: (builder) => {
