@@ -1,6 +1,15 @@
+import { useDispatch } from 'react-redux'
+import { showUsers } from '../redux/users/usersSlice'
+
 const Button = () => {
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(showUsers())
+  }
+
   return (
-    <button>show users</button>
+    <button onClick={handleClick}>show users</button>
   )
 }
 

@@ -11,7 +11,7 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     showUsers: (state, action) => {
-      state.users = action.payload;
+      state.users = [...state.users, 23];
     }
   },
   extraReducers: (builder) => {
