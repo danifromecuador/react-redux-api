@@ -1,24 +1,31 @@
-import { useSelector } from "react-redux";
-
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUsers } from "../redux/users/usersSlice";
 
 const Users = () => {
-  const { users, isLoading, error } = useSelector(state => state.users)
-  console.log(users, isLoading, error)
+  const dispatch = useDispatch();
 
-  let whenLoading = null;
-  let whenError = null;
-  if(isLoading) whenLoading = <div>waith it is loading</div>;
-  if(error) whenError = <div>an error has appeard</div>
-  let html = null;
-  if(users) html = users.map(user => <li key={user.id}>{user.name}</li>)
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+
+  const { users, isLoading, error } = useSelector((state) => state.users);
+  // console.log(users, isLoading, error);
+
+  // Use the nullish coalescing operator (??) to provide default values for when isLoading and error are null or undefined
+  const whenLoading = isLoading ? <div>wait, it is loading</div> : null;
+  const whenError = error ? <div>an error has appeared</div> : null;
+
+  // const html = users ? users.map((user, index) => <li key={user}>{user.name}</li>) : null;
 
   return (
     <ul>
-      {html}
+      {/* {html} */}
       {whenLoading}
       {whenError}
     </ul>
-  )
-}
+  );
+};
 
-export default Users
+export default Users;
