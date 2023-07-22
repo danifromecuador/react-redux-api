@@ -4,9 +4,8 @@ const fetchUsersAsync = async () => {
   try {
     const response = await fetch("https://randomuser.me/api/?results=5");
     const data = await response.json();
-    console.log(data.results);
+    // console.log(data.results);
     return data.results;
-
   } catch (error) {
     throw error;
   }
@@ -24,9 +23,9 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    showUsers: (state, action) => {
-      state.users = [...state.users, 23];
-    },
+    // showUsers: (state, action) => {
+    //   state.users = [...state.users, 23];
+    // },
   },
   extraReducers: (builder) => {
     builder

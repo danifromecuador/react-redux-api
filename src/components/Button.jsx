@@ -5,11 +5,11 @@ const Button = () => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    dispatch(showUsers())
+    console.log('button clicked')
   }
 
   return (
-    <button onClick={handleClick}>show users</button>
+    <button onClick={handleClick}>this button is unneccessary</button>
   )
 }
 
